@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "826201527219",
+    "project_id": "fir-demo-9708b",
+    "storage_bucket": "fir-demo-9708b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826201527219:android:dfa873888cb8e4952d71c6",
+        "android_client_info": {
+          "package_name": "com.example.firebaseform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826201527219-d4mo67oigpkaslt8ai32e2ufcgocecdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDafcB68wznWtX7ZVMMJAnHt-gP0lOUPNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826201527219-d4mo67oigpkaslt8ai32e2ufcgocecdj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "826201527219-uf7f9foqtfom2pa89loeuq5otvm0be10.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseform"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

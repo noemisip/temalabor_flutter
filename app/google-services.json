@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "64068682099",
+    "project_id": "fir-demoo-ce197",
+    "storage_bucket": "fir-demoo-ce197.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64068682099:android:e8a5af8b9742bf36450506",
+        "android_client_info": {
+          "package_name": "com.example.firebaseform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64068682099-vmj3ana4d8f5b1uob0i104fbtpqq8i8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHs_NuXf_CzSXM5zN9MOgf-fmRGsd9fIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64068682099-vmj3ana4d8f5b1uob0i104fbtpqq8i8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
