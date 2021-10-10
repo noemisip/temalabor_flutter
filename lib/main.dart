@@ -7,9 +7,9 @@ import 'people.dart';
 import 'package:flutter/foundation.dart';
 
 
-TextEditingController lastnameController = new TextEditingController();
-TextEditingController firstnameController = new TextEditingController();
-TextEditingController emailController = new TextEditingController();
+TextEditingController lastnameController = TextEditingController();
+TextEditingController firstnameController = TextEditingController();
+TextEditingController emailController = TextEditingController();
 
 Future<void> main() async{
 
@@ -152,12 +152,12 @@ class BodyWidgetState extends State<BodyWidget> {
                   )
                 ]
             ),
-            FlatButton(
+            TextButton(
                 onPressed: (){
                   test();
                 },
                 child: Text("Ok"),
-                textColor: Colors.purple                    ),
+                               ),
             Container( child: defaultContainer()),
           ]
       ),
