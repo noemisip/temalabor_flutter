@@ -15,6 +15,18 @@ Future<void> main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  var ref = FirebaseDatabase.instance.reference();
+  var peopleRef = ref.child("people");
+  peopleRef.reference().get().then((DataSnapshot? snapshot) {
+    print(
+        'Connected to directly configured database and read ${snapshot!.value}');
+  });
+
+
+
+
+
   runApp(Form());
 
 }
@@ -23,20 +35,19 @@ var ok = false;
 class PeopleDao{
 
   final DatabaseReference _peopleRef =
-  FirebaseDatabase.instance.reference().child('people');
+  FirebaseDatabase.instance.reference().child('people/');
 
   void savePeople(People people) {
-    _peopleRef.push().set(people.toJson());
+    _peopleRef.push().set(people.toJson()).catchError((e){
+      print(e);
+    }).then((value) {
+      print("ok");
+    });
   }
+
   Query getPeopleQuery(){
     return _peopleRef;
   }
-  /*void tryagain(){
-  _peopleRef.child("1").set({
-  'title': 'Mastering EJB',
-  'description': 'Programming Guide for J2EE'
-  });
-  }*/
 
 }
 
@@ -47,7 +58,9 @@ class Form extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
        home: Scaffold(
+         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text("Form"),
         ),
@@ -93,12 +106,12 @@ class BodyWidgetState extends State<BodyWidget> {
 
   }
 
-  void test(){
+  void test() {
     final people = People(lastnameController.text,firstnameController.text,emailController.text);
     widget.peopleDao.savePeople(people);
-    lastnameController.clear();
-    firstnameController.clear();
-    emailController.clear();
+    //lastnameController.clear();
+    //firstnameController.clear();
+    //emailController.clear();
     setState(() {});
   }
 
@@ -176,23 +189,6 @@ class BodyWidgetState extends State<BodyWidget> {
   }
 }
 
-/* Widget getWidget(){
-     child: if(ok == true) {
-      return okContainer();
-     }
-        else{
-       return defaultContainer();
-     }
-    }*/
-
-/*  Widget okContainer(){
-      return Container(
-        color: Colors.green,
-        height: 200,
-
-      );
-    }
-*/
 
 
 
