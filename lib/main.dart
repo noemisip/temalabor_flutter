@@ -16,16 +16,12 @@ Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  var ref = FirebaseDatabase.instance.reference();
+  /*var ref = FirebaseDatabase.instance.reference();
   var peopleRef = ref.child("people");
   peopleRef.reference().get().then((DataSnapshot? snapshot) {
     print(
         'Connected to directly configured database and read ${snapshot!.value}');
-  });
-
-
-
-
+  });*/
 
   runApp(Form());
 
@@ -48,12 +44,11 @@ class PeopleDao{
   Query getPeopleQuery(){
     return _peopleRef;
   }
-
 }
 
 class Form extends StatelessWidget {
   Form({Key? key}) : super(key: key);
-  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
+ // final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
@@ -64,23 +59,7 @@ class Form extends StatelessWidget {
         appBar: AppBar(
           title: Text("Form"),
         ),
-        body: FutureBuilder(
-          future: _fbApp,
-          builder: (context, snapshot){
-            if(snapshot.hasError){
-              print(' you have an error ${ snapshot.error.toString()}');
-              return Text('Something went wrong!');
-            }
-            else if ( snapshot.hasData){
-              return BodyWidget();
-            }
-            else {
-              return Center(
-              child: CircularProgressIndicator(),
-              );
-            }
-          },
-        )//BodyWidget(),
+        body: BodyWidget()
       ),
     );
   }
@@ -98,20 +77,17 @@ class BodyWidget extends StatefulWidget{
 
 class BodyWidgetState extends State<BodyWidget> {
 
-  String datas = "";
-
   @override
   void initState() {
     super.initState();
-
   }
 
   void test() {
     final people = People(lastnameController.text,firstnameController.text,emailController.text);
     widget.peopleDao.savePeople(people);
-    //lastnameController.clear();
-    //firstnameController.clear();
-    //emailController.clear();
+    lastnameController.clear();
+    firstnameController.clear();
+    emailController.clear();
     setState(() {});
   }
 
